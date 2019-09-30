@@ -8,7 +8,16 @@
 	
 	<%@include file="includes/mensaje.jsp"%>
 	
-	<form class="form-inline d-flex justify-content-between mt-3 mb-2" action="inicio" method="post">
+	<form class="form-inline mt-3 mb-2" action="inicio" method="post">
+		<label class="mr-2 text-primary" for="usuario_id"><i class="fas fa-user mr-1"></i>Usuario:</label>
+		<c:forEach items="${usuarios}" var="u">
+			<c:if test="${u.id == video.usuario.id}">
+				<input type="text" class="form-control mb-2 mr-5"
+					id="usuario_id" placeholder="Usuario Video"
+					value="${u.nombre}">
+			</c:if>
+		</c:forEach>
+	
 		<label class="mr-2" for="categoria_id"><i class="fas fa-tag mr-1"></i>Categoría:</label>
 		<c:forEach items="${categorias}" var="c">
 			<c:if test="${c.id == video.categoria.id}">
@@ -18,14 +27,6 @@
 			</c:if>
 		</c:forEach>
 		
-		<label class="mr-2" for="usuario_id"><i class="fas fa-user mr-1"></i>Usuario:</label>
-		<c:forEach items="${usuarios}" var="u">
-			<c:if test="${u.id == video.usuario.id}">
-				<input type="text" class="form-control mb-2 mr-5"
-					id="usuario_id" placeholder="Usuario Video"
-					value="${u.nombre}">
-			</c:if>
-		</c:forEach>
 		<a href="inicio">
 			<span class="d-right"><i class="fas fa-heart mr-1 text-danger"></i>${video.likes}</span>
 		</a>

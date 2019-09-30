@@ -226,6 +226,25 @@ public class UsuarioDAO {
 		return pojo;
 	}
 
+	public Usuario migrar(Usuario pojo, Connection con) throws Exception {
+
+		try (PreparedStatement pst = con.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS)) {
+
+			pst.setString(1, pojo.getNombre());
+			pst.setString(2, pojo.getContrasenya());
+
+			int affectedRows = pst.executeUpdate();
+			if (affectedRows == 1) {
+				// conseguimos el ID que acabamos de crear
+				ResultSet rs = pst.getGeneratedKeys();
+				if (rs.next()) {
+					pojo.setId(rs.getInt(1));
+				}
+			}
+		}
+		return pojo;
+	}
+
 	private Usuario mapper(ResultSet rs) throws SQLException {
 
 		Usuario u = new Usuario();

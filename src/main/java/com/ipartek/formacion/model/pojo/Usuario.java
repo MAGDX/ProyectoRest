@@ -4,14 +4,13 @@ import java.util.Date;
 
 public class Usuario {
 
-	
 	private int id;
 	private String nombre;
 	private String contrasenya;
 	private Date fechaCreacion;
 	private Date fechaEliminacion;
 	private Rol rol;
-	
+
 	public Usuario() {
 		super();
 		this.id = -1;
@@ -20,6 +19,12 @@ public class Usuario {
 		this.fechaCreacion = null;
 		this.fechaEliminacion = null;
 		this.rol = new Rol();
+	}
+
+	public Usuario(String nombre, String contrasenya) {
+		super();
+		setNombre(nombre);
+		setContrasenya(contrasenya);
 	}
 
 	public int getId() {
@@ -75,5 +80,5 @@ public class Usuario {
 		return "Usuario [id=" + id + ", nombre=" + nombre + ", contrasenya=" + contrasenya + ", fechaCreacion="
 				+ fechaCreacion + ", fechaEliminacion=" + fechaEliminacion + ", rol=" + rol + "]";
 	}
-	
+
 }

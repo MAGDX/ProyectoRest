@@ -18,10 +18,10 @@
 		<div class="col">
 			<h3>Videos Publicados</h3>
 			<ul class="list-group">
-	  			<c:forEach items="${videosVisibles}" var="v" >	  
+	  			<c:forEach items="${videosVisibles}" var="v">
   				  	<li class="list-group-item">
 				  		<a href="backoffice/videos?op=<%=VideoController.OP_DETALLE%>&id=${v.id}">
-				  			<img class="float-left mr-3" src="https://img.youtube.com/vi/${v.codigo}/default.jpg" alt="Imagen destacda del video ${v.nombre}"/>
+				  			<img class="float-left mr-3" src="https://img.youtube.com/vi/${v.codigo}/default.jpg" alt="Imagen destacada del video ${v.nombre}"/>
 				  			<p class="h3 mb-4">${v.nombre}</p>
 				  		</a>
 				  		<div class="d-inline mb-1">
